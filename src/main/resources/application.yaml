@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://211.197.240.15:27017
+      database: nkakao
+
