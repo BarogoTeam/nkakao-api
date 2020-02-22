@@ -4,18 +4,18 @@ import springfox.documentation.spring.web.json.Json;
 
 import java.util.List;
 
-public class ChatRoom {
-    private String roomId;
+public class Room {
+    private String id;
     private List<String> users;
     private String lastChatId;
     private Json info;
 
-    public String getRoomId() {
-        return roomId;
+    public String getId() {
+        return id;
     }
 
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public List<String> getUsers() {
@@ -42,10 +42,17 @@ public class ChatRoom {
         this.info = info;
     }
 
-    public ChatRoom(String roomId, List<String> users, String lastChatId, Json info) {
-        this.roomId = roomId;
+    public Room(String id, List<String> users, String lastChatId, Json info) {
+        this.id = id;
         this.users = users;
         this.lastChatId = lastChatId;
         this.info = info;
+    }
+
+    public Room(String id, List<String> users) {
+        this.id = id;
+        this.users = users;
+        this.lastChatId = null;
+        this.info = null;
     }
 }
