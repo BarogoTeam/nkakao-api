@@ -3,10 +3,7 @@ package com.barogo.nkakao.controller;
 import com.barogo.nkakao.entity.User;
 import com.barogo.nkakao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,8 +29,7 @@ public class UserController {
     }
 
     @PostMapping()
-    public void addUser() {
-        User user = new User("ANY_USER_ID", "ANY_ID", "ANY_PASSWORD", "ANY_NAME");
+    public void addUser(@RequestBody User user) {
         userService.insert(user);
     }
 }
