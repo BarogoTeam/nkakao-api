@@ -32,4 +32,9 @@ public class UserController {
     public void addUser(@RequestBody User user) {
         userService.insert(user);
     }
+
+    @DeleteMapping("/{id}")
+    public void removeUser(@PathVariable String id) {
+        userService.deleteById(id);
+    }
 }
