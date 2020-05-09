@@ -19,17 +19,17 @@ public class MessageController {
         this.messageService = messageService;
     }
 
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     public Optional<Message> getMessage(@PathVariable String id) {
         return messageService.findById(id);
     }
 
-    @RequestMapping()
+    @GetMapping()
     public List<Message> getMessageList() {
         return messageService.findAll();
     }
 
-    @RequestMapping("/{roomId}")
+    @GetMapping("/room/{roomId}")
     public List<Message> getRoomMessageList(String roomId) {
         return messageService.findByRoomId(roomId);
     }
