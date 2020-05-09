@@ -1,5 +1,6 @@
 package com.barogo.nkakao.controller;
 
+import com.barogo.nkakao.entity.Message;
 import com.barogo.nkakao.entity.User;
 import com.barogo.nkakao.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +20,18 @@ public class MessageController {
     }
 
     @RequestMapping("/{id}")
-    public Optional<User> getMessage(@PathVariable String id) {
+    public Optional<Message> getMessage(@PathVariable String id) {
         return messageService.findById(id);
     }
 
     @RequestMapping()
-    public List<User> getMessageList() {
+    public List<Message> getMessageList() {
         return messageService.findAll();
     }
 
     @PostMapping()
-    public void addMessage(@RequestBody User user) {
-        messageService.insert(user);
+    public void addMessage(@RequestBody Message message) {
+        messageService.insert(message);
     }
 
     @DeleteMapping("/{id}")
