@@ -24,7 +24,7 @@ public class RoomController {
         return roomService.createRoom(json);
     }
 
-    @RequestMapping("/{userId}")
+    @GetMapping("/user/{userId}")
     public List<Room> getUserRoomList(@PathVariable String userId) {
         return roomService.findByUserId(userId);
     }
