@@ -3,18 +3,18 @@ package com.barogo.nkakao.entity;
 import java.util.Date;
 
 public class Message {
-    private String messageId;
+    private String id;
     private String roomId;
     private String userId;
     private Date date;
     private String msg;
 
-    public String getMessageId() {
-        return messageId;
+    public String getId() {
+        return id;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getRoomId() {
@@ -49,8 +49,8 @@ public class Message {
         this.msg = msg;
     }
 
-    public Message(String messageId, String roomId, String userId, Date date, String msg) {
-        this.messageId = messageId;
+    public Message(String id, String roomId, String userId, Date date, String msg) {
+        this.id = id;
         this.roomId = roomId;
         this.userId = userId;
         this.date = date;
