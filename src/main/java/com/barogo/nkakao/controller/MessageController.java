@@ -29,6 +29,11 @@ public class MessageController {
         return messageService.findAll();
     }
 
+    @RequestMapping("/{roomId}")
+    public List<Message> getRoomMessageList(String roomId) {
+        return messageService.findByRoomId(roomId);
+    }
+
     @PostMapping()
     public void addMessage(@RequestBody Message message) {
         messageService.insert(message);

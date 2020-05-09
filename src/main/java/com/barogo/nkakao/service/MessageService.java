@@ -27,6 +27,10 @@ public class MessageService {
         return messageRepository.findAll();
     }
 
+    public List<Message> findByRoomId(String roomId) {
+        return messageRepository.findByRoomId(roomId);
+    }
+
     public void insert(Message message) {
         messageRepository.insert(message);
     }
