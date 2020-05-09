@@ -24,4 +24,8 @@ public class RoomService {
         roomRepository.insert(room);
         return id;
     }
+
+    public List<Room>  findByUserId(String userId){
+        return roomRepository.findByUserId(userId);
+    }
 }
