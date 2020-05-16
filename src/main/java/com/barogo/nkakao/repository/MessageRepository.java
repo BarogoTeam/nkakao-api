@@ -1,17 +1,16 @@
 package com.barogo.nkakao.repository;
 
 import com.barogo.nkakao.entity.Message;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
+import org.springframework.data.elasticsearch.annotations.Query;
+import org.springframework.data.elasticsearch.repository.ElasticsearchCrudRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface MessageRepository extends MongoRepository<Message, String> {
+public interface MessageRepository extends ElasticsearchCrudRepository<Message, String> {
 
-    @Query("{'id': ?0 }")
     Optional<Message> findById(String id);
-
-    @Query("{'roomId': ?0 }")
     List<Message> findByRoomId(String roomId);
+    @Query("{ \"bool\" : { \"must\" : [ { \"query_string\" : { \"query\" : \"?0\", \"fields\" : [ \"roomId\" ] } }, { \"range\" : { \"id\" : { \"from\" : \"?1\", \"to\" : null , \"include_lower\" : false , \"include_upper\" : true } } } ] } }")
+    List<Message> updateRoomById(String roomId, String id);
 }

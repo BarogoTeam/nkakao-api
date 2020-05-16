@@ -25,13 +25,18 @@ public class MessageController {
     }
 
     @GetMapping()
-    public List<Message> getMessageList() {
+    public Iterable<Message> getMessageList() {
         return messageService.findAll();
     }
 
     @GetMapping("/room/{roomId}")
-    public List<Message> getRoomMessageList(String roomId) {
+    public List<Message> getRoomMessageList(@PathVariable String roomId) {
         return messageService.findByRoomId(roomId);
+    }
+
+    @GetMapping("/room/{roomId}/update/{id}")
+    public List<Message> getRoomMessageList(@PathVariable String roomId,@PathVariable String id) {
+        return messageService.updateRoomById(roomId,id);
     }
 
     @PostMapping()
@@ -39,8 +44,4 @@ public class MessageController {
         messageService.insert(message);
     }
 
-    @DeleteMapping("/{id}")
-    public void removeMessage(@PathVariable String id) {
-        messageService.deleteById(id);
-    }
 }

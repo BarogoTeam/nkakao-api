@@ -23,7 +23,7 @@ public class MessageService {
         return messageRepository.findById(id);
     }
 
-    public List<Message> findAll() {
+    public Iterable<Message> findAll() {
         return messageRepository.findAll();
     }
 
@@ -31,11 +31,12 @@ public class MessageService {
         return messageRepository.findByRoomId(roomId);
     }
 
-    public void insert(Message message) {
-        messageRepository.insert(message);
+    public List<Message> updateRoomById(String roomId, String id) {
+        return messageRepository.updateRoomById(roomId, id);
     }
 
-    public void deleteById(String id) {
-        messageRepository.deleteById(id);
+    public void insert(Message message) {
+        messageRepository.save(message);
     }
+
 }
