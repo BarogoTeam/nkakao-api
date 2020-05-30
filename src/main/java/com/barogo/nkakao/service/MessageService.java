@@ -7,6 +7,7 @@ import com.barogo.nkakao.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +37,8 @@ public class MessageService {
     }
 
     public void insert(Message message) {
+        Date d = new Date();
+        message.setId((int)d.getTime());
         messageRepository.save(message);
     }
 

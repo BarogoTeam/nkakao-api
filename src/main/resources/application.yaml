@@ -1,8 +1,10 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://211.197.240.15:27017
+      uri: mongodb://14.138.114.106:20530
       database: nkakao
     elasticsearch:
       cluster-name: elasticsearch
       cluster-nodes: localhost:9300
+server:
+  port: 8081

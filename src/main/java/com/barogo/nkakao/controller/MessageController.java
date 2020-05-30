@@ -20,8 +20,8 @@ public class MessageController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Message> getMessage(@PathVariable String id) {
-        return messageService.findById(id);
+    public List<Message> getMessage(@PathVariable String id) {
+        return messageService.findByRoomId(id);
     }
 
     @GetMapping()
